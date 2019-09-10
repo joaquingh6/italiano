@@ -19,6 +19,7 @@ class CreateImagenesTable extends Migration
             $table->string('titulo');
             $table->string('descripcion');
             $table->integer('user_id')->unsigned();
+            $table->integer('confirmado')->default(0);
             $table->timestamps();
         });
     }

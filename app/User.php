@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     protected $table = "users";
     protected $fillable = [
-        'nombre', 'email', 'password','apellidos','ciudad','numero','fecha_nacimiento','role' 
+        'name', 'email', 'password','apellidos','ciudad','numero','fecha_nacimiento','role' 
     ];
 
     /**
@@ -45,6 +45,9 @@ class User extends Authenticatable
 
     public function imagen()
     {
-        return $this->hasOne('App\Imagen');
+        return $this->hasOne('App\Imagen' , 'user_id');
+    }
+    public function isAdmin(){
+        return $this->role == User::ROL_ADMINISTRADOR;
     }
 }
